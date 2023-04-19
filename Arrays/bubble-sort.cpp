@@ -24,18 +24,21 @@ int main()
 
 int sort(int arr[], int n)
 {
-    for (int i = 0 ; i<n-1 ; i++)
+    int k = 1;
+    while (k<n)
     {
-        for (int j = i+1 ; j<n ; j++)
+        for (int i = 0 ; i<n-k ; i++)
         {
-            if (arr[j] < arr[i])
+            if (arr[i] > arr[i+1])
             {
-                int tem = arr[j];
-                arr[j] = arr[i];
-                arr[i] = tem;
+                int temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
             }
         }
+        k++;
     }
+    
     cout << "The sorted array is: "<< endl;
     for (int i = 0 ; i<n ; i++)
     {
